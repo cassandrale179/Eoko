@@ -456,11 +456,12 @@ i{
   color: white;
   font-family: 'Domine', serif;
   font-size: 20px;
-  width: 500px;
+  width: 70%;
   padding: 1%;
   margin: auto;
   display: block;
   margin-bottom: 15px;
+  border-radius: 3px;
 }
 
 #HomeB button:hover{
@@ -472,4 +473,27 @@ i{
 
 #HomeB1{
   margin-top: 50px;
+}
+
+#HomeB1 input{
+  width: 70%;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  font-family: 'Domine', serif;
+  color: #797D7F;
+  padding: 1%;
+
+}
+
+#HomeB1 p{
+  color: #797D7F;
+  font-family: 'Domine', serif;
+  text-align: center;
+}
+
+#HomeB1 a{
+  color: #D35400;
+  text-decoration: none;
+  font-size: 18px;
 }
