@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel|Domine|Gentium+Basic');
 
 body {
-    /*background-image: url(../img/main_background.png);*/
+    background-image: url(../img/main_background.png);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -10,11 +10,7 @@ body {
 }
 
 /* ------------- STYLING OF THE PORTAL PAGE ---------------------- */
-/* STYLING OF VERTICAL BAR (A)*/
-#A a:hover{
-	border: inset rgba(0,0,0,1);
-}
-
+/* STYLING OF VERTICAL BAR (A) */
 #A{
   width: 150px;
   position: fixed;
@@ -32,6 +28,9 @@ body {
   padding-top: 80px;
 }
 
+#A a:hover{
+	color: #DC7633;
+}
 
 #A1, #A2, #A3, #A4, #A5, #A6{
   height: 100px;
@@ -68,7 +67,7 @@ body {
 /* STYLING OF HORIZONTAL BAR (B)*/
 #B{
   height: 80px;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.5);
   margin-left: 150px;
   display:flex;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -155,8 +154,9 @@ body {
   background-color: rgba(0,0,0,0.3);
   width: 25%;
   position: absolute;
-  margin-bottom: 3%;
-  padding: 5%;
+  padding: 2%;
+  margin-top: 1%;
+  margin-right: 3%;
 
 }
 
