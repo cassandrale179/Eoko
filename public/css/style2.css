@@ -351,10 +351,12 @@
 }
 
 #I1{
+  width: 50%;
+  padding: 5%;
   background: white;
-  padding-left: 10%;
-  padding-right: 10%;
+  margin-bottom: 50px;
   text-align: center;
   margin-right: 50px;
+  margin-left: 50px;
 
 }

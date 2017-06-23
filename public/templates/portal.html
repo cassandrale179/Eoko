@@ -1,34 +1,14 @@
 <!DOCTYPE html>
 <body>
 
-  <!-- ________________ VERTICAL NAVIGATION BAR  ________________
+  <!-- ________________ VERTICAL NAVIGATION BAR  ________________ -->
   <div id="A" class="w3-animate-opacity">
-      <a id="residentsTab" ng-click="selector(3)"><i class="fa fa-user-o"></i>RESIDENTS</a><br>
-      <a id="approveTab" ng-click="selector(4)"><i class="fa fa-check"></i> APPROVE</a><br>
-      <a id="myEventsTab" ng-click="selector(5)"><i class="fa fa-calendar-check-o"></i>MY EVENTS</a><br>
-      <a id="feedbackTab" ng-click="selector(6)"><i class="fa fa-pie-chart"></i>FEEDBACK</a><br>
-      <a id="rankingTab" ng-click="selector(7)"><i class="fa fa-star-half-o"></i>RANKING</a><br>
-      <a id="logoutTab" ng-click="selector(8)"><i class="fa fa-arrow-right"></i> LOGOUT</a>
-  </div> -->
-  <div id="A">
-    <div id="A1">
-      <a id="residentsTab" ng-click="selector(3)">RESIDENTS</a><br>
-    </div>
-    <div id="A2">
-      <a id="approveTab" ng-click="selector(4)">APPROVE</a><br>
-    </div>
-    <div id="A3">
-      <a id="myEventsTab" ng-click="selector(5)">MY EVENTS</a><br>
-    </div>
-    <div id="A4">
-      <a id="feedbackTab" ng-click="selector(6)">FEEDBACK</a><br>
-    </div>
-    <div id="A5">
-      <a id="rankingTab" ng-click="selector(7)">RANKING</a><br>
-    </div>
-    <div id="A6">
-      <a id="logoutTab" ng-click="selector(8)"> LOGOUT</a>
-    </div>
+    <div id="A1"><a id="residentsTab" ng-click="selector(3)">RESIDENTS</a><br></div>
+    <div id="A2"><a id="approveTab" ng-click="selector(4)">APPROVE</a><br></div>
+    <div id="A3"><a id="myEventsTab" ng-click="selector(5)">MY EVENTS</a><br></div>
+    <div id="A4"><a id="feedbackTab" ng-click="selector(6)">FEEDBACK</a><br></div>
+    <div id="A5"><a id="rankingTab" ng-click="selector(7)">RANKING</a><br></div>
+    <div id="A6"><a id="logoutTab" ng-click="selector(8)"> LOGOUT</a></div>
   </div>
 
   <!--  ________________ HORIZONTAL NAVIGATION BAR  ________________ -->
@@ -94,7 +74,15 @@
 
   <!-- _________________________ TAB FOR FEEDBACK __________________________ -->
   <div id="I" ng-if="selection.tab == 'Feedback'">
+
+    <button ng-click="feedSelect(0)">Comments</button>
+    <button ng-click="feedSelect(1)">Surveys</button>
+
+
     <!--  style="width: 33vw;background-color: rgba(0, 0, 0, 0.61);padding: 33px;overflow: auto;height: 61vh;" -->
+
+    <div ng-if="feed.back == 'commentsection'">
+        <h1>Comments</h1>
         <!-- IF NO COMMENTS, OUTPUT NO COMMENT MESSAGE -->
         <div ng-if="commentData.length == 0" class="eoko-portal-no-user">
           No Comments to display
@@ -106,6 +94,41 @@
             <h2>{{comment.name}}</h2>
             <p>"{{comment.comment}}"</p>
         </div>
+    </div>
+
+
+    <div ng-if="feed.back == 'surveysection'">
+        <h1>Surveys</h1>
+
+       <div ng-if="surveyData.length == 0" class="eoko-portal-no-user">
+          No Surveys to display
+        </div>
+
+        <!-- BUTTONS FOR THE DIFFERENT ACTUAL SURVEYS -->
+        <div>
+            <h2 ng-repeat="survey in surveyData" ng-click="LoadSurveyData(survey.data,survey.totalPeople)">{{survey.title}}</h2>
+        </div>
+
+        <!-- THE ANSWER SECTION WITH THE GRAPHS -->
+       <div style="padding:4px;background-color:rgba(128, 128, 128, 0.15);">
+         <div ng-repeat="info in surveyInfo track by $index">
+           <h3>{{$index + 1}})</h3>
+           <p>{{info.title}}</p>
+              <div style="padding:2px;" ng-repeat="(key,answers) in info.choices">
+                <span>{{key + 1|character}})</span>
+                <span>{{answers.answer}}</span>
+
+                <!-- THE "GRAPH" PART -->
+                <div style="
+                  display:inline-block;
+                  background-color: orange;width:calc(100px * {{answers.count/totalCount}});
+                  text-align:center;
+                  padding: 2px;">{{answers.count ? answers.count : 0}}</div>
+
+              </div>
+         </div>
+       </div>
+    </div>
   </div>
 
 <!-- _________________________ TAB FOR RANKING __________________________ -->
