@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <body>
 
-  <!-- ________________ VERTICAL NAVIGATION BAR  ________________ -->
+  <!-- ________________ VERTICAL NAVIGATION BAR  ________________
   <div id="A" class="w3-animate-opacity">
       <a id="residentsTab" ng-click="selector(3)"><i class="fa fa-user-o"></i>RESIDENTS</a><br>
       <a id="approveTab" ng-click="selector(4)"><i class="fa fa-check"></i> APPROVE</a><br>
@@ -9,6 +9,26 @@
       <a id="feedbackTab" ng-click="selector(6)"><i class="fa fa-pie-chart"></i>FEEDBACK</a><br>
       <a id="rankingTab" ng-click="selector(7)"><i class="fa fa-star-half-o"></i>RANKING</a><br>
       <a id="logoutTab" ng-click="selector(8)"><i class="fa fa-arrow-right"></i> LOGOUT</a>
+  </div> -->
+  <div id="A">
+    <div id="A1">
+      <a id="residentsTab" ng-click="selector(3)">RESIDENTS</a><br>
+    </div>
+    <div id="A2">
+      <a id="approveTab" ng-click="selector(4)">APPROVE</a><br>
+    </div>
+    <div id="A3">
+      <a id="myEventsTab" ng-click="selector(5)">MY EVENTS</a><br>
+    </div>
+    <div id="A4">
+      <a id="feedbackTab" ng-click="selector(6)">FEEDBACK</a><br>
+    </div>
+    <div id="A5">
+      <a id="rankingTab" ng-click="selector(7)">RANKING</a><br>
+    </div>
+    <div id="A6">
+      <a id="logoutTab" ng-click="selector(8)"> LOGOUT</a>
+    </div>
   </div>
 
   <!--  ________________ HORIZONTAL NAVIGATION BAR  ________________ -->
@@ -74,21 +94,18 @@
 
   <!-- _________________________ TAB FOR FEEDBACK __________________________ -->
   <div id="I" ng-if="selection.tab == 'Feedback'">
+    <!--  style="width: 33vw;background-color: rgba(0, 0, 0, 0.61);padding: 33px;overflow: auto;height: 61vh;" -->
+        <!-- IF NO COMMENTS, OUTPUT NO COMMENT MESSAGE -->
+        <div ng-if="commentData.length == 0" class="eoko-portal-no-user">
+          No Comments to display
+        </div>
 
-  <!--  style="width: 33vw;background-color: rgba(0, 0, 0, 0.61);padding: 33px;overflow: auto;height: 61vh;" -->
-  <div>
-      <!-- IF NO COMMENTS, OUTPUT NO COMMENT MESSAGE -->
-      <div ng-if="commentData.length == 0" class="eoko-portal-no-user">
-        No Comments to display
-      </div>
-
-      <!-- ELSE DISPLAY APPROVED USERS -->
-      <div id="I1" class="col-md-3" ng-repeat="comment in commentData">
-          <div class="avatar2" style="background-image: url({{comment.avatar}});"></div>
-          <h2>{{comment.name}}</h2>
-          <p>"{{comment.comment}}"</p>
-      </div>
-  </div>
+        <!-- ELSE DISPLAY APPROVED USERS -->
+        <div id="I1" ng-repeat="comment in commentData">
+            <div class="avatar2" style="background-image: url({{comment.avatar}});"></div>
+            <h2>{{comment.name}}</h2>
+            <p>"{{comment.comment}}"</p>
+        </div>
   </div>
 
 <!-- _________________________ TAB FOR RANKING __________________________ -->
